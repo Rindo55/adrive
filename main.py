@@ -562,6 +562,7 @@ async def api_get_directory(request: Request):
         query = urllib.parse.unquote(data["path"].split("_", 1)[1])
         segments = data["path"].split('/')
         path = '/'.join(segments[:-1]) 
+        print(path)
         print(query)
         data = {"contents": DRIVE_DATA.search_file_folder(query, path)}
         print(data)
