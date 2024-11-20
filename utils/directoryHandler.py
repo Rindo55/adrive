@@ -273,6 +273,9 @@ class NewDriveData:
                     search_results[item.id] = item
                 if item.type == "folder":
                     traverse_directory(item)
+        traverse_directory(root_dir)
+        return search_results
+        
     def search_file_folderx(self, query: str):
         root_dir = self.get_directory("/")
         search_results = {}
@@ -286,8 +289,7 @@ class NewDriveData:
 
         traverse_directory(root_dir)
         return search_results
-        traverse_directory(root_dir)
-        return search_results
+
     def search_file_folder2(self, query: str, path: str, is_admin: bool, auth: str):
         if path=="":
             root_dir, auth_home_path = self.get_directory("/", is_admin, auth)
